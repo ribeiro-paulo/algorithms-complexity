@@ -2,13 +2,13 @@
 #include "lista.h"
 
 Lista* criarLista(void) {
-    Lista *l = malloc(sizeof(Lista));
+    Lista *l = malloc(sizeof(Lista)); // Aloca memória para a lista
     l->cabeca = NULL;
     return l;
 }
 
 void inserirLista(Lista *l, int valor) {
-    No *novo = malloc(sizeof(No));
+    No *novo = malloc(sizeof(No)); // Aloca memória para o novo nó
     novo->valor = valor;
     novo->proximo = l->cabeca;
     l->cabeca = novo;

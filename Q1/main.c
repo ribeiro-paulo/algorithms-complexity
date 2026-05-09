@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h> // Para medir o tempo de execução CLOCK
 
+// Tipos Abstratos de Dados
 #include "../shared/vetor.h"
-#include "../shared/busca.h"
 #include "../shared/stats.h"
 
 #define N 1000000
@@ -15,15 +15,15 @@ void executarBuscaSequencial(int *v) {
         int chave;
 
         if (i < 15)
-            chave = v[rand() % N];
+            chave = v[rand() % N]; // sort valor vai ser encontrado no vetor
         else
-            chave = rand() % 2000000;
+            chave = rand() % 2000000; // sort valor pode não ser encontrado no vetor
 
-        clock_t inicio = clock();
+        clock_t inicio = clock(); //Marca o tempo inicial da execução
         buscaSequencial(v, N, chave);
-        clock_t fim = clock();
+        clock_t fim = clock(); //Marca o tempo final da execução
 
-        tempos[i] = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+        tempos[i] = ((double)(fim - inicio)) / CLOCKS_PER_SEC; //Calcula tempo de execução em segundos
         printf("Busca Sequencial - Execução %d: %f\n", i + 1, tempos[i]);
     }
 
@@ -61,9 +61,10 @@ void executarBuscaBinaria(int *v) {
 }
 
 int main() {
-    srand(time(NULL));
+    srand(time(NULL)); //Inicializa números aleatórios diferentes'
 
-    int *vetor = malloc(N * sizeof(int));
+    // Aloca memória para vetor inteiro
+    int *vetor = malloc(N * sizeof(int)); 
 
     gerarVetor(vetor, N);
 
