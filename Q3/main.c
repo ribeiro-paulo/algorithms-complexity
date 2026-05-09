@@ -4,12 +4,13 @@
 #include <time.h>
 
 #include "../shared/vetor.h"
-#include "../shared/ordenacao.h"
+
+//TODO: Organizar por classe vetor, organizado, entender a complexidade
 
 #define N       100000
 #define RODADAS 10
 
-typedef void (*FuncOrdenacao)(int *, int);
+typedef void (*FuncOrdenacao)(int *, int); // Define um tipo de função para os algoritmos de ordenação.
 
 static const char *nomes[] = {
     "Bubble Sort",
@@ -28,14 +29,14 @@ static FuncOrdenacao algoritmos[] = {
 };
 
 // descobrir o tamanho do vetor, sem precisar contar manualmente.
-#define N_ALGO (int)(sizeof(algoritmos) / sizeof(algoritmos[0]))
+#define N_ALGO 5
 
 int main(void) {
     // inicializa o gerador de números aleatórios com base no horário atual.
     srand((unsigned)time(NULL));
 
     int *original = malloc(N * sizeof(int));
-    int *copia    = malloc(N * sizeof(int));
+    int *copia    = malloc(N * sizeof(int)); // é uma copia garantindo que todos ordenem os mesmos dados.
 
     double tempos[N_ALGO][RODADAS];
 

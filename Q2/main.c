@@ -3,16 +3,15 @@
 #include <time.h>
 
 #include "../shared/vetor.h"
-#include "../shared/busca.h"
 #include "../shared/lista.h"
 #include "../shared/stats.h"
 
 #define N 1000000
 
 int main() {
-    srand(time(NULL));
+    srand(time(NULL)); // Inicializa a semente para geração de números aleatórios
 
-    int *vetor = malloc(N * sizeof(int));
+    int *vetor = malloc(N * sizeof(int)); // Aloca memória para o vetor
     gerarVetor(vetor, N);
 
     Lista *lista = criarLista();
